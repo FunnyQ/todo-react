@@ -1,0 +1,100 @@
+.todos-wrapper
+  position: relative
+  min-height: 500px
+  margin-top: 80px
+  padding-bottom: 80px
+  background-image: asset-url('exclusive_paper.png')
+  +border-radius(8px)
+  border: 1px solid rgba($white, .5)
+  +box-shadow(0 0 15px rgba($black, .5))
+
+  .todos-title
+    margin-top: .2em
+    margin-bottom: 0
+    padding-top: .5em
+    padding-bottom: .2em
+    border-bottom: 1px solid rgba($gray, .8)
+    text-align: center
+    font-size: 3em
+    color: $deep-gray
+    font-weight: 900
+    +text-shadow(0 -2px 2px $white)
+
+  .new-todo-form-wrapper
+    margin-top: 2em
+    padding: 0 3em
+    .new-todo-form
+      width: 100%
+      padding: .5em
+      background-color: rgba($white, .1)
+      border: none
+      border-bottom: 5px solid $light-gray
+      text-align: center
+      font-size: $fz-xl
+      +appearance(none)
+      &:focus
+        +reset-focus
+        background-color: rgba($white, .5)
+
+  .todos-list-wrapper
+    padding: 0 3em
+    ul
+      +reset-list-style
+      margin: 0
+      padding: 0
+    li
+      position: relative
+      background-color: rgba($white, .3)
+      border: 1px solid $light-gray
+      border-top: none
+      &:hover
+        .delete-btn
+          display: block
+      .todo-toggle
+        position: absolute
+        top: 0
+        bottom: 0
+        width: 40px
+        height: 40px
+        margin: auto
+        +appearance(none)
+        &:focus
+          +reset-focus
+        &:after
+          content: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="-10 -18 100 135"><circle cx="50" cy="50" r="50" fill="none" stroke="#aaaaaa" stroke-width="3"/></svg>')
+        &:checked:after
+          content: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="-10 -18 100 135"><circle cx="50" cy="50" r="50" fill="none" stroke="#888888" stroke-width="3"/><path fill="#5dc2af" d="M72 25L42 71 27 56l-4 4 20 20 34-52z"/></svg>')
+      .todo-title
+        display: block
+        margin-left: 45px
+        padding: 8px
+        font-size: $fz-l
+        line-height: 2em
+        color: $deep-gray
+      .delete-btn
+        display: none
+        position: absolute
+        right: 10px
+        top: 15px
+        background: none
+        border: none
+        cursor: pointer
+        color: red
+        font-size: $fz-l
+        &:focus
+          +reset-focus
+
+    .complated
+      .todo-title
+        color: $gray
+        text-decoration: line-through
+  .todos-info-wrapper
+    position: absolute
+    padding: .5em
+    bottom: 0
+    width: 100%
+    border-top: 1px solid $light-gray
+    text-align: center
+    color: darken($light-gray, 10)
+
+
