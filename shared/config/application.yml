@@ -1,0 +1,17 @@
+# config/application.yml
+defaults: &defaults
+  mysql:
+    database:
+    password:
+    username:
+  secret_key: '' # `rake secret` to generate one
+
+development:
+  <<: *defaults
+
+test:
+  <<: *defaults
+
+production:
+  <<: *defaults
+  secret_key: '' # `rake secret` to generate one
