@@ -20,6 +20,10 @@
   toggleComplete: (todo, isCompleted)->
     index = @state.todos.indexOf todo
 
+  newTodo: (todo) ->
+    todos = React.addons.update(@state.todos, { $push: [todo] })
+    @setState todos: todos
+
   render: ->
     <div className="todos-wrapper">
       <h1 className="todos-title">TODO</h1>
