@@ -17,6 +17,9 @@
   workingTodosCount: ->
     @state.todos.length - @completedTodosCount()
 
+  toggleComplete: (todo, isCompleted)->
+    index = @state.todos.indexOf todo
+
   render: ->
     <div className="todos-wrapper">
       <h1 className="todos-title">TODO</h1>
@@ -30,7 +33,7 @@
           {
             if @state.todos.length > 0
               for todo in @state.todos
-                <Todo key={todo.id} todo={todo} />
+                <Todo key={todo.id} todo={todo} handleToggleComplete={@toggleComplete} />
             else
               <li className="todo-no-data">尚未記錄待辦事項</li>
           }
