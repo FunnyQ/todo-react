@@ -26,6 +26,12 @@
     todos = React.addons.update(@state.todos, { $push: [todo] })
     @setState todos: todos
 
+  deleteTodo: (todo) ->
+    index = @state.todos.indexOf todo
+    todos = React.addons.update(@state.todos, { $splice: [[index, 1]] })
+    @replaceState todos: todos
+
+
   render: ->
     <div className="todos-wrapper">
       <h1 className="todos-title">TODO</h1>
@@ -39,7 +45,7 @@
           {
             if @state.todos.length > 0
               for todo in @state.todos
-                <Todo key={todo.id} todo={todo} handleToggleComplete={@toggleComplete} />
+                <Todo key={todo.id} todo={todo} handleToggleComplete={@toggleComplete} handleDeleteTodo={@deleteTodo} />
             else
               <li className="todo-no-data">尚未記錄待辦事項</li>
           }
