@@ -25,7 +25,7 @@
       <h1 className="todos-title">TODO</h1>
 
       <div className="new-todo-form-wrapper">
-        <TodoInput />
+        <TodoInput handleNewTodo={@newTodo} />
       </div>
 
       <div className="todos-list-wrapper">
