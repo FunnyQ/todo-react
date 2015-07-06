@@ -12,6 +12,7 @@
 #= require bootstrap
 #= require growlyflash
 #= require sweet-alert-confirm
+#= require classnames
 #= require turbolinks
 #= require react
 #= require react_ujs

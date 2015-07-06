@@ -8,7 +8,7 @@
     @setState(completed: !@state.completed)
 
   render: ->
-    wrapperClasses = React.addons.classSet
+    wrapperClasses = classNames
       'trans-03s': true
       'completed': @state.completed
 
