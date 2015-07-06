@@ -6,6 +6,15 @@
 
   toggleCompleted: (e)->
     @setState(completed: !@state.completed)
+    $.ajax
+      method: 'PUT'
+      url: "todos/#{@props.todo.id}"
+      data:
+        todo:
+          completed: !@state.completed
+      dataType: 'JSON'
+      success: (data) =>
+        @props.handleToggleComplete @props.todo, data
 
   render: ->
     wrapperClasses = classNames

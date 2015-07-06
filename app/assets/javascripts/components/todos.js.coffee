@@ -17,8 +17,10 @@
   workingTodosCount: ->
     @state.todos.length - @completedTodosCount()
 
-  toggleComplete: (todo, isCompleted)->
+  toggleComplete: (todo, data)->
     index = @state.todos.indexOf todo
+    todos = React.addons.update(@state.todos, { $splice: [[index, 1, data]] })
+    @replaceState todos: todos
 
   newTodo: (todo) ->
     todos = React.addons.update(@state.todos, { $push: [todo] })
