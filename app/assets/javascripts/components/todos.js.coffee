@@ -9,16 +9,15 @@
   getInitialState: ->
     todos: @props.todos
 
+  completedTodosCount: ->
+    @state.todos.filter((value) ->
+      value.completed == true
+    ).length
+
+  workingTodosCount: ->
+    @state.todos.length - @completedTodosCount()
+
   render: ->
-
-    # 沒有資料的狀況
-    noData =
-      <li className="todo-no-data">尚未記錄待辦事項</li>
-
-    # 有資料的話顯示 Todo component
-    todoUnit =
-      <Todo />
-
     <div className="todos-wrapper">
       <h1 className="todos-title">TODO</h1>
 
@@ -29,14 +28,14 @@
       <div className="todos-list-wrapper">
         <ul>
           {
-            console.log(@state.todos)
             if @state.todos.length > 0
-              {todoUnit}
+              for todo in @state.todos
+                <Todo key={todo.id} todo={todo} />
             else
-              {noData}
+              <li className="todo-no-data">尚未記錄待辦事項</li>
           }
         </ul>
       </div>
 
-      <TodoFooterInfo />
+      <TodoFooterInfo completed={@completedTodosCount()} working={@workingTodosCount()} />
     </div>

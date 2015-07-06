@@ -3,5 +3,5 @@
 
   render: ->
     <div className="todos-info-wrapper">
-      <span>已完成：<span>3</span> | 待完成：<span>10</span></span>
+      <span>已完成：<span>{@props.completed}</span> | 進行中：<span>{@props.working}</span></span>
     </div>
