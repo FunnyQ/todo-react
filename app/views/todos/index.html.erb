@@ -1,0 +1,35 @@
+<div class="q-container">
+  <div class="todos-wrapper">
+
+    <!-- title -->
+    <h1 class="todos-title">TODO</h1>
+
+    <!-- new TODO input -->
+    <div class="new-todo-form-wrapper">
+      <input class="new-todo-form trans-03s" type="text" placeholder="輸入想完成的事！">
+    </div>
+
+    <!-- TODOs list -->
+    <div class="todos-list-wrapper">
+      <ul>
+        <li class="completed">
+          <input type="checkbox" name="test1" id="test1" class="todo-toggle">
+          <label class="todo-title">征服世界</label>
+          <button class="delete-btn trans-03s">✖️</button>
+        </li>
+        <% 10.times.each do |x| %>
+          <li>
+            <input type="checkbox" name="test1" id="test1" class="todo-toggle">
+            <label class="todo-title">學會 React.js</label>
+            <button class="delete-btn trans-03s">✖️</button>
+          </li>
+        <% end %>
+      </ul>
+    </div>
+
+    <!-- TODOs infomation bar -->
+    <div class="todos-info-wrapper">
+      <span>已完成：<span>3</span> | 待完成：<span>10</span></span>
+    </div>
+  </div>
+</div>
