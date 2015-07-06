@@ -1,9 +1,9 @@
 # config valid only for Capistrano 3.1
 lock '3.1.0'
 
-set :application, 'AppName'
-set :repo_url, 'git@github.com:USERNAME/REPONAME.git'
-set :deploy_to, '/home/USERNAME/PATH_HERE'
+set :application, 'todoReact'
+set :repo_url, 'git@github.com:funnyq/todo-react.git'
+set :deploy_to, '/home/deployer/todo-react/'
 
 set :linked_files, %w{config/database.yml}
 set :linked_files, %w{config/database.yml config/application.yml config/secrets.yml}
@@ -11,15 +11,6 @@ set :linked_dirs, %w{log tmp/pids tmp/cache tmp/sockets vendor/bundle public/sys
 
 # Default value for keep_releases is 5
 # set :keep_releases, 5
-
-# Hipchat
-require 'hipchat/capistrano'
-
-set :hipchat_token, ""
-set :hipchat_room_name, ""
-set :hipchat_announce, true # notify users?
-set :hipchat_color, 'green' #finished deployment message color
-set :hipchat_failed_color, 'red' #cancelled deployment message color
 
 # install bower components before assets precompile
 before "deploy:assets:precompile", "bower:install"

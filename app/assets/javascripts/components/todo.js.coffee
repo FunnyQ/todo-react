@@ -26,6 +26,32 @@
       success: (data) =>
         @props.handleDeleteTodo @props.todo
 
+    # todo = @props.todo
+    # handleDeleteTodo = @props.handleDeleteTodo
+
+    # sendRequest = ->
+    #   $.ajax
+    #     method: 'DELETE'
+    #     url: "todos/#{todo.id}"
+    #     dataType: 'JSON'
+    #     success: (data) =>
+    #       handleDeleteTodo todo
+
+    # swal {
+    #   title: '確定要刪除嗎？'
+    #   text: '這個操作將無法復原！'
+    #   type: 'warning'
+    #   showCancelButton: true
+    #   confirmButtonColor: '#DD6B55'
+    #   confirmButtonText: '刪除'
+    #   cancelButtonText: '取消'
+    # }, (isConfirm) ->
+    #   if isConfirm
+    #     sendRequest()
+    #   else
+    #     return
+    #   return
+
 
   render: ->
     wrapperClasses = classNames

@@ -10,7 +10,7 @@
       return
 
     e.preventDefault()
-    newTodoValue = React.findDOMNode(this.refs.newField).value.trim()
+    newTodoValue = React.findDOMNode(@refs.newField).value.trim()
     $.ajax
       method: 'POST'
       url: '/todos'
@@ -20,7 +20,7 @@
       dataType: 'JSON'
       success: (data) =>
         @props.handleNewTodo data
-        React.findDOMNode(this.refs.newField).value = ''
+        React.findDOMNode(@refs.newField).value = ''
 
   render: ->
     <input className="new-todo-form trans-03s" type="text" placeholder="輸入想完成的事！" autoFocus={true} onKeyDown={@handleNewTodoKeyDown} ref="newField" />
